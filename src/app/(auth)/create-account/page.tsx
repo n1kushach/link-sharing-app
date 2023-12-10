@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -63,7 +64,7 @@ const CreateAccount = () => {
         Password must contain at least 8 characters
       </span>
       <div>
-        <button className="w-full bg-main-purple px-[27px] py-[11px] font-bold heading_s text-white rounded-lg">
+        <button className="w-full bg-main-purple px-[27px] py-[11px] font-bold heading_s text-white rounded-lg ${">
           Create an account
         </button>
       </div>

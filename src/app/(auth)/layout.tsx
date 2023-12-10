@@ -17,8 +17,10 @@ export default function AuthLayout({
 }) {
   return (
     <html lang="en">
-      <body className={instrument_sans.className}>
-        <main className="flex flex-col gap-16 p-8">
+      <body
+        className={`${instrument_sans.className} min-h-screen sm-bg-[#fafafa]`}
+      >
+        <main className="flex flex-col gap-16 p-8 s:max-w-[396px] s:mx-auto s:h-screen s:justify-center s:items-center">
           <div>
             <Image
               src={"/images/logo-devlinks-large.svg"}
@@ -27,7 +29,7 @@ export default function AuthLayout({
               alt="DevLinks Logo"
             />
           </div>
-          <main>{children}</main>
+          <main className="sm:bg-white sm:p-[40px]">{children}</main>
         </main>
       </body>
     </html>
