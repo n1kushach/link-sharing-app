@@ -13,7 +13,7 @@ const LogIn = () => {
       </section>
       <form className="flex flex-col gap-6 pt-4">
         <label className="flex flex-col gap-1 relative">
-          <span className="body_s">Email</span>
+          <span className="body_s">Email address</span>
 
           <input
             className="focus:outline-main-purple focus:shadow-active-input py-3 px-4 rounded-lg bg-[#fff] border border-[#d9d9d9] pl-[30px]"
@@ -51,7 +51,7 @@ const LogIn = () => {
       </div>
       <div className="flex flex-col items-center justify-center">
         <span className="body_m">Don&apos;t have an account?</span>
-        <Link href="#" className="text-main-purple">
+        <Link href="/create-account" className="text-main-purple">
           Create account
         </Link>
       </div>
