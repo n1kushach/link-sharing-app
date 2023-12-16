@@ -17,6 +17,10 @@ const LogIn = () => {
     }
   };
 
+  const isCredentialsValid =
+    credentials?.email.length > 5 == true &&
+    credentials?.password.length > 5 == true;
+
   return (
     <main className='flex flex-col gap-6'>
       <section className='flex flex-col gap-2'>
@@ -73,9 +77,7 @@ const LogIn = () => {
         <button
           onClick={() => handleSubmit()}
           className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white duration-300 ${
-            credentials?.email.length < 5 &&
-            credentials?.password.length < 5 &&
-            'opacity-25 duration-300'
+            isCredentialsValid == false && 'opacity-25 duration-300'
           }`}
         >
           Login
