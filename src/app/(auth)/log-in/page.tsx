@@ -39,7 +39,7 @@ const LogIn = () => {
                 email: e.target.value,
               }))
             }
-            className='rounded-lg border border-[#d9d9d9] bg-[#fff] px-4 py-3 pl-[30px] focus:shadow-active-input focus:outline-main-purple'
+            className='rounded-lg border border-[#d9d9d9] bg-[#fff] px-4 py-3 pl-[30px] focus:shadow-active-input focus:outline-main-purple focus:duration-300'
             type='text'
             placeholder='e.g alex@email.com'
           />
@@ -60,7 +60,7 @@ const LogIn = () => {
                 password: e.target.value,
               }))
             }
-            className=' rounded-lg border border-[#d9d9d9] bg-[#fff] px-4 py-3 pl-[30px] focus:shadow-active-input focus:outline-main-purple'
+            className='rounded-lg  border border-[#d9d9d9] bg-[#fff] px-4 py-3 pl-[30px] focus:shadow-active-input focus:outline-main-purple focus:duration-300'
             type='password'
             placeholder='e.g Enter your password'
           />
