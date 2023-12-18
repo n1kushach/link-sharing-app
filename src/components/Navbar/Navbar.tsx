@@ -1,8 +1,4 @@
 'use client';
-import Image from 'next/image';
-import LinkIcon from '../../../public/images/icon-link.svg';
-import ProfileDetailsIcon from '../../../public/images/icon-profile-details-header.svg';
-import PreviewIcon from '../../../public/images/icon-preview-header.svg';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -10,6 +6,7 @@ export default function Navbar() {
     link: true,
     profile_details: false,
   });
+
   return (
     <nav className='flex items-center justify-between bg-white px-6 py-4'>
       <div>
@@ -33,15 +30,13 @@ export default function Navbar() {
           onClick={() => {
             setActive({ link: true, profile_details: false });
           }}
-          className={`rounded-[8px] duration-300 ${
+          className={`rounded-[8px] ${
             active?.link == true && 'bg-[#efebff]'
           } px-[27px] py-[11px]`}
         >
           <svg
             className={`${
-              active?.link == true
-                ? 'fill-[#633CFF] duration-300'
-                : 'fill-[#737373] duration-300'
+              active?.link == true ? 'fill-[#633CFF]' : 'fill-[#737373]'
             } `}
             xmlns='http://www.w3.org/2000/svg'
             width='20'
@@ -56,15 +51,15 @@ export default function Navbar() {
           onClick={() => {
             setActive({ link: false, profile_details: true });
           }}
-          className={`rounded-[8px] duration-300 ${
+          className={`rounded-[8px] ${
             active?.profile_details == true && 'bg-[#efebff]'
           } px-[27px] py-[11px]`}
         >
           <svg
             className={`${
               active?.profile_details == true
-                ? 'fill-[#633CFF] duration-300'
-                : 'fill-[#737373] duration-300'
+                ? 'fill-[#633CFF]'
+                : 'fill-[#737373]'
             } `}
             xmlns='http://www.w3.org/2000/svg'
             width='20'
