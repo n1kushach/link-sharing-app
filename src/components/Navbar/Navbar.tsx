@@ -1,11 +1,9 @@
 'use client';
 import { useState } from 'react';
+import useLinkShare from '@/hooks/useLinkShare/useLinkShare';
 
 export default function Navbar() {
-  const [active, setActive] = useState({
-    link: true,
-    profile_details: false,
-  });
+  const { view, setView } = useLinkShare();
 
   return (
     <nav className='flex items-center justify-between bg-white px-6 py-4'>
@@ -28,15 +26,15 @@ export default function Navbar() {
       <div className='flex items-center'>
         <div
           onClick={() => {
-            setActive({ link: true, profile_details: false });
+            setView({ links: true, profile_details: false });
           }}
           className={`rounded-[8px] ${
-            active?.link == true && 'bg-[#efebff]'
+            view?.links == true && 'bg-[#efebff]'
           } px-[27px] py-[11px]`}
         >
           <svg
             className={`${
-              active?.link == true ? 'fill-[#633CFF]' : 'fill-[#737373]'
+              view?.links == true ? 'fill-[#633CFF]' : 'fill-[#737373]'
             } `}
             xmlns='http://www.w3.org/2000/svg'
             width='20'
@@ -49,15 +47,15 @@ export default function Navbar() {
         </div>
         <div
           onClick={() => {
-            setActive({ link: false, profile_details: true });
+            setView({ links: false, profile_details: true });
           }}
           className={`rounded-[8px] ${
-            active?.profile_details == true && 'bg-[#efebff]'
+            view?.profile_details == true && 'bg-[#efebff]'
           } px-[27px] py-[11px]`}
         >
           <svg
             className={`${
-              active?.profile_details == true
+              view?.profile_details == true
                 ? 'fill-[#633CFF]'
                 : 'fill-[#737373]'
             } `}

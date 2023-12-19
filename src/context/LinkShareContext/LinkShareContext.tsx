@@ -14,11 +14,21 @@ type Profile = {
   image: string;
 };
 
+type View = {
+  links: boolean;
+  profile_details: boolean;
+};
+
 interface LinkShareContext {
   links: Links[];
   setLinks: React.Dispatch<React.SetStateAction<Links[]>>;
   profile: Profile;
   setProfile: React.Dispatch<React.SetStateAction<Profile>>;
+  view: {
+    links: boolean;
+    profile_details: boolean;
+  };
+  setView: React.Dispatch<React.SetStateAction<View>>;
 }
 
 export const LinkShareContext = createContext<LinkShareContext>({
@@ -31,11 +41,19 @@ export const LinkShareContext = createContext<LinkShareContext>({
     image: '',
   },
   setProfile: () => {},
+  view: {
+    links: true,
+    profile_details: false,
+  },
+  setView: () => {},
 });
 
 export const LinkShareProvider = ({ children }: PropsWithChildren) => {
   const [links, setLinks] = useState<Links[]>([]);
-
+  const [view, setView] = useState({
+    links: true,
+    profile_details: false,
+  });
   const [profile, setProfile] = useState<Profile>({
     first_name: '',
     last_name: '',
@@ -44,7 +62,9 @@ export const LinkShareProvider = ({ children }: PropsWithChildren) => {
   });
 
   return (
-    <LinkShareContext.Provider value={{ links, setLinks, profile, setProfile }}>
+    <LinkShareContext.Provider
+      value={{ links, setLinks, profile, setProfile, view, setView }}
+    >
       {children}
     </LinkShareContext.Provider>
   );
