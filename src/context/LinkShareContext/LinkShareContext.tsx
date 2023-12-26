@@ -4,7 +4,7 @@ import React, { PropsWithChildren, createContext, useState } from 'react';
 type Links = {
   id: number;
   link: string;
-  platform: string;
+  platform: number;
 };
 
 type Profile = {
@@ -62,9 +62,7 @@ export const LinkShareProvider = ({ children }: PropsWithChildren) => {
   });
 
   return (
-    <LinkShareContext.Provider
-      value={{ links, setLinks, profile, setProfile, view, setView }}
-    >
+    <LinkShareContext.Provider value={{ links, setLinks, profile, setProfile, view, setView }}>
       {children}
     </LinkShareContext.Provider>
   );

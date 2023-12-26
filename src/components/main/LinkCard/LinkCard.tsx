@@ -5,13 +5,13 @@ import CustomSelect from '../CustomSelect/CustomSelect';
 type Links = {
   id: number;
   link: string;
-  platform: string;
+  platform: number;
 }[];
 interface Props {
   data: {
     id: string | number;
     link: string;
-    platform: string;
+    platform: number;
   };
   links: Links;
   setLinks: React.Dispatch<React.SetStateAction<Links>>;
@@ -19,6 +19,7 @@ interface Props {
 }
 
 const LinkCard = ({ data, removeLinkById, links, setLinks }: Props) => {
+  console.log(data, 'DATA');
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
     const { value } = e.target;
     const newLinks = links.map((link) => {
@@ -51,7 +52,7 @@ const LinkCard = ({ data, removeLinkById, links, setLinks }: Props) => {
         </button>
       </div>
       <div className='flex flex-col gap-2'>
-        <CustomSelect />
+        <CustomSelect item_id={data?.id as number} selectedPlatform={data?.platform} />
         <label className='relative flex flex-col gap-1'>
           <span className='body_s'>Link</span>
           <input

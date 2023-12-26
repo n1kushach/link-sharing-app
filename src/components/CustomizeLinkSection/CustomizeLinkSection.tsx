@@ -9,7 +9,7 @@ import { DragDropContext, Draggable } from '@hello-pangea/dnd';
 interface Links {
   id: number;
   link: string;
-  platform: string;
+  platform: number;
 }
 
 const CustomizeLinkSection = () => {
@@ -20,7 +20,7 @@ const CustomizeLinkSection = () => {
       {
         id: links.length === 0 ? 1 : links[links.length - 1].id + 1,
         link: '',
-        platform: '',
+        platform: 1,
       },
     ]);
   };
@@ -92,9 +92,9 @@ const CustomizeLinkSection = () => {
           </Droppable>
         </DragDropContext>
         {links?.length == 0 && <LetsGetYouStarted />}
-        <div>
+        <div className='s:flex s:justify-end'>
           <button
-            className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white  ${
+            className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white s:w-[91px]  ${
               links?.length > 0 ? 'opacity-100 duration-300' : 'opacity-25 duration-300'
             } duration-300 `}
           >
