@@ -10,18 +10,12 @@ export const metadata = {
 
 const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <LinkShareProvider>
         <html lang='en'>
-          <body
-            className={`${instrument_sans.className} min-h-screen bg-[#fafafa]`}
-          >
+          <body className={`${instrument_sans.className} min-h-screen bg-[#fafafa]`}>
             <Navbar />
             {children}
           </body>

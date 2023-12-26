@@ -92,15 +92,6 @@ const CustomizeLinkSection = () => {
           </Droppable>
         </DragDropContext>
         {links?.length == 0 && <LetsGetYouStarted />}
-        <div className='s:flex s:justify-end'>
-          <button
-            className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white s:w-[91px]  ${
-              links?.length > 0 ? 'opacity-100 duration-300' : 'opacity-25 duration-300'
-            } duration-300 `}
-          >
-            Save
-          </button>
-        </div>
       </div>
     </div>
   );

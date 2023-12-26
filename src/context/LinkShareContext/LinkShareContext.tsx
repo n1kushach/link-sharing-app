@@ -17,6 +17,7 @@ type Profile = {
 type View = {
   links: boolean;
   profile_details: boolean;
+  preview: boolean;
 };
 
 interface LinkShareContext {
@@ -27,6 +28,7 @@ interface LinkShareContext {
   view: {
     links: boolean;
     profile_details: boolean;
+    preview: boolean;
   };
   setView: React.Dispatch<React.SetStateAction<View>>;
 }
@@ -44,6 +46,7 @@ export const LinkShareContext = createContext<LinkShareContext>({
   view: {
     links: true,
     profile_details: false,
+    preview: false,
   },
   setView: () => {},
 });
@@ -53,6 +56,7 @@ export const LinkShareProvider = ({ children }: PropsWithChildren) => {
   const [view, setView] = useState({
     links: true,
     profile_details: false,
+    preview: false,
   });
   const [profile, setProfile] = useState<Profile>({
     first_name: '',
