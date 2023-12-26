@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Modern link share app',
 };
 
-const instrument_sans = Instrument_Sans({ subsets: ['latin'] });
+const instrument_sans = Instrument_Sans({ subsets: ['latin'], display: 'swap' });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
