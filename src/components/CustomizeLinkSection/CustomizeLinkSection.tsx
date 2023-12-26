@@ -3,6 +3,8 @@ import NewLinkButton from '../main/NewLinkButton/NewLinkButton';
 import LinkCard from '../main/LinkCard/LinkCard';
 import useLinkShare from '@/hooks/useLinkShare/useLinkShare';
 import LetsGetYouStarted from '../main/LetsGetYouStarted/LetsGetYouStarted';
+import { StrictModeDroppable as Droppable } from '../StrictModeDroppable/StrictModeDroppable';
+import { DragDropContext, Draggable } from '@hello-pangea/dnd';
 
 interface Links {
   id: number;
@@ -28,31 +30,72 @@ const CustomizeLinkSection = () => {
     });
   };
 
+  const grid = 8;
+
+  const getItemStyle = (isDragging: any, draggableStyle: any) => ({
+    userSelect: 'none',
+    padding: grid * 0.5,
+    borderRadius: '4px',
+    background: isDragging ? '#633CFF' : 'rgb(226 232 240)',
+    ...draggableStyle,
+  });
+
+  const onDragEnd = (result: any) => {
+    if (!result.destination) {
+      return;
+    }
+    const items = reorder(links, result.source.index, result.destination.index) as any;
+    setLinks(items);
+  };
+  const reorder = (list: any, startIndex: any, endIndex: any) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+    return result;
+  };
+
   return (
     <div className='p-[16px]'>
-      <div className='rounded-[8px] bg-white p-[24px]'>
+      <div className='flex flex-col gap-4 rounded-[8px] bg-white p-[24px]'>
         <MainHeaderInfo
           main_title='Customize your links'
           body_text='Add/edit/remove links below and then share all your profiles with the world!'
         />
         <NewLinkButton addLink={addLink} />
-        <div className='links flex flex-col gap-6 pt-6'>
-          {links?.map((link: Links) => (
-            <LinkCard
-              removeLinkById={removeLinkById}
-              data={link}
-              key={link.id}
-            />
-          ))}
-        </div>
+        <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+          <Droppable droppableId='droppable'>
+            {(provided, snapshot) => (
+              <div className='flex flex-col gap-4' {...provided.droppableProps} ref={provided.innerRef}>
+                {links?.map((item, index) => (
+                  <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
+                      >
+                        <LinkCard
+                          removeLinkById={removeLinkById}
+                          data={item}
+                          key={item.id}
+                          links={links}
+                          setLinks={setLinks}
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
         {links?.length == 0 && <LetsGetYouStarted />}
-        <hr className='pt-6' />
         <div>
           <button
             className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white  ${
-              links?.length > 0
-                ? 'opacity-100 duration-300'
-                : 'opacity-25 duration-300'
+              links?.length > 0 ? 'opacity-100 duration-300' : 'opacity-25 duration-300'
             } duration-300 `}
           >
             Save

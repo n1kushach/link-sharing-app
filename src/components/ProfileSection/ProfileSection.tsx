@@ -3,7 +3,7 @@ import MainHeaderInfo from '../main/MainHeaderInfo/MainHeaderInfo';
 
 const ProfileSection = () => {
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex flex-col gap-2 p-[16px]'>
       <div className='flex flex-col gap-2 rounded-[8px] bg-white p-[24px]'>
         <MainHeaderInfo
           main_title='Profile Details'
