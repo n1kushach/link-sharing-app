@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar/Navbar';
 import '../../styles/globals.css';
 import { Instrument_Sans } from 'next/font/google';
 import { LinkShareProvider } from '@/context/LinkShareContext/LinkShareContext';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: 'Link share',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <LinkShareProvider>
         <html lang='en'>
           <body className={`${instrument_sans.className} min-h-screen bg-[#fafafa]`}>
+            <SpeedInsights />
             <Navbar />
             {children}
           </body>
