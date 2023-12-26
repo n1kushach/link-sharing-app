@@ -58,16 +58,9 @@ const LinkCard = ({ data, removeLinkById, links, setLinks }: Props) => {
           <input
             value={data.link as string}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange(e, data.id as number)}
-            className=' rounded-lg border border-[#d9d9d9] bg-[#fff] px-4 py-3 pl-[42px] text-sm placeholder:text-sm focus:shadow-active-input focus:outline-main-purple focus:duration-300'
+            className=' rounded-lg border border-[#d9d9d9] bg-[#fff] px-4 py-3  text-sm placeholder:text-sm focus:shadow-active-input focus:outline-main-purple focus:duration-300'
             type='text'
             placeholder='e.g. https://www.github.com/johnappleseed'
-          />
-          <Image
-            src={'/images/icon-link.svg'}
-            width={16}
-            height={16}
-            alt='icon'
-            className='absolute bottom-0 left-[18px] top-[44px]'
           />
         </label>
       </div>

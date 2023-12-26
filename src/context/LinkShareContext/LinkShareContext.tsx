@@ -11,7 +11,7 @@ type Profile = {
   first_name: string;
   last_name: string;
   email: string;
-  image: string;
+  image: Blob | MediaSource | string | File;
 };
 
 type View = {

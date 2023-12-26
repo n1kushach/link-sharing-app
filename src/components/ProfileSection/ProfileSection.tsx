@@ -4,27 +4,18 @@ import MainHeaderInfo from '../main/MainHeaderInfo/MainHeaderInfo';
 import useLinkShare from '@/hooks/useLinkShare/useLinkShare';
 import { ChangeEvent, useRef, useState } from 'react';
 import { profileSchema } from '@/schemas/profileSchema';
-import * as Yup from 'yup';
 import Image from 'next/image';
-import { getBase64 } from '@/utils/get-base-64/GetBase64';
 
 const ProfileSection = () => {
   const { profile, setProfile, setView } = useLinkShare();
   const [errors, setErrors] = useState<any>({});
-  const [data, setData] = useState<any>({
-    image: '',
-    first_name: '',
-    last_name: '',
-    email: '',
-  });
+
   const uploadImgRef = useRef<HTMLInputElement>(null);
   const handleProfileSubmit = async (e: any) => {
     e.preventDefault();
     setErrors({});
     try {
-      await profileSchema.validate(data, { abortEarly: false });
-      setProfile({ ...profile, ...data });
-      // router.push('/choose-option/');
+      await profileSchema.validate(profile, { abortEarly: false });
     } catch (validationErrors: any) {
       const errors: Record<string, string> = {};
       validationErrors.inner.forEach((error: any) => {
@@ -33,8 +24,6 @@ const ProfileSection = () => {
       setErrors(errors);
     }
   };
-
-  console.log(data, 'DATA');
 
   return (
     <div className='flex flex-col gap-2 p-[16px]'>
@@ -51,7 +40,9 @@ const ProfileSection = () => {
               className='relative flex w-[70%] flex-col items-center justify-center gap-2 rounded-[12px] bg-[#EFEBFF] px-[39px] py-[60px]'
             >
               <input
-                onChange={(e: ChangeEvent<HTMLInputElement>) => setData({ ...data, image: e.target.files?.[0] })}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setProfile({ ...profile, image: e.target.files?.[0] as File })
+                }
                 accept='image/jpeg,image/jpg,image/png'
                 hidden={true}
                 type='file'
@@ -59,13 +50,14 @@ const ProfileSection = () => {
               />
               <UploadImageIcon />
               <div>
-                {data?.image !== '' && (
+                {profile?.image !== '' && (
                   <Image
+                    key='image'
                     alt='image'
-                    src={URL.createObjectURL(data.image)}
+                    src={URL.createObjectURL(profile.image as Blob)}
                     layout='fill'
                     objectFit='fill'
-                    className=' absolute object-fill'
+                    className=' absolute '
                   />
                 )}
               </div>
@@ -80,55 +72,58 @@ const ProfileSection = () => {
           <label className='relative flex flex-col gap-1'>
             <span className='body_s'>First name *</span>
             <input
+              value={profile?.first_name || ''}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setData({ ...data, first_name: e.target.value });
+                setProfile({ ...profile, first_name: e.target.value });
                 if (errors?.first_name) {
-                  const dataCopy = { ...errors };
-                  delete dataCopy.first_name;
-                  setErrors(dataCopy);
+                  const profileCopy = { ...errors };
+                  delete profileCopy.first_name;
+                  setErrors(profileCopy);
                 }
               }}
               className={`rounded-lg ${
                 errors?.first_name && 'border-red-500'
               } border border-[#d9d9d9] bg-[#fff] px-4 py-3 text-sm placeholder:text-sm focus:shadow-active-input focus:outline-main-purple focus:duration-300`}
               type='text'
-              placeholder='e.g. https://www.github.com/johnappleseed'
+              placeholder='Please enter your first name'
             />
           </label>
           <label className='relative flex flex-col gap-1'>
             <span className='body_s'>Last Name *</span>
             <input
+              value={profile?.last_name || ''}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setData({ ...data, last_name: e.target.value });
+                setProfile({ ...profile, last_name: e.target.value });
                 if (errors?.last_name) {
-                  const dataCopy = { ...errors };
-                  delete dataCopy.last_name;
-                  setErrors(dataCopy);
+                  const profileCopy = { ...errors };
+                  delete profileCopy.last_name;
+                  setErrors(profileCopy);
                 }
               }}
               className={`rounded-lg border ${
                 errors?.last_name && 'border-red-500'
               } border-[#d9d9d9] bg-[#fff] px-4 py-3 text-sm placeholder:text-sm focus:shadow-active-input focus:outline-main-purple focus:duration-300`}
               type='text'
-              placeholder='e.g. https://www.github.com/johnappleseed'
+              placeholder='Please enter your last name'
             />
           </label>
           <label className='relative flex flex-col gap-1'>
             <span className='body_s'>Email</span>
             <input
+              value={profile?.email || ''}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setProfile({ ...profile, email: e.target.value })}
               className=' rounded-lg border border-[#d9d9d9] bg-[#fff] px-4 py-3 text-sm placeholder:text-sm focus:shadow-active-input focus:outline-main-purple focus:duration-300'
               type='text'
-              placeholder='e.g. https://www.github.com/johnappleseed'
+              placeholder='Please enter your email'
             />
           </label>
         </div>
 
-        <div>
+        <div className='sm:flex sm:justify-end'>
           <button
             type='submit'
             onClick={(e) => handleProfileSubmit(e)}
-            className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white`}
+            className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white sm:w-[91px]`}
           >
             Save
           </button>
