@@ -10,6 +10,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 150%;
+    font-display: swap;
   }
 
   .heading_s {
@@ -18,6 +19,8 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 24px */
+    font-display: swap;
+
   }
 
   .body_m {
@@ -26,6 +29,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 24px */
+    font-display: swap;
+
   }
 
   .body_s {
@@ -34,5 +39,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 18px */
+    font-display: swap;
+
   }
 }

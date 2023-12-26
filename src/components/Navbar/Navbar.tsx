@@ -1,7 +1,5 @@
 'use client';
 import useLinkShare from '@/hooks/useLinkShare/useLinkShare';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import PreviewNavbar from './PreviewNavbar/PreviewNavbar';
 import MainNavbar from './MainNavbar/MainNavbar';
 
