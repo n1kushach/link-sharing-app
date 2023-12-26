@@ -25,7 +25,7 @@ const MainNavbar = ({ view, setView }: Props) => {
     };
   }, []);
 
-  const [windowSize, setWindowSize] = useState([window.innerWidth, window.innerHeight]);
+  const [windowSize, setWindowSize] = useState<any>([]);
 
   const width = windowSize[0];
   return (

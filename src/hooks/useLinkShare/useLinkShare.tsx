@@ -1,3 +1,4 @@
+'use client';
 import React, { useContext } from 'react';
 import { LinkShareContext } from '@/context/LinkShareContext/LinkShareContext';
 

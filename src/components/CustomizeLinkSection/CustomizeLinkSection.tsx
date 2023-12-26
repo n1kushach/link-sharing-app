@@ -1,3 +1,4 @@
+'use client';
 import MainHeaderInfo from '../main/MainHeaderInfo/MainHeaderInfo';
 import NewLinkButton from '../main/NewLinkButton/NewLinkButton';
 import LinkCard from '../main/LinkCard/LinkCard';
