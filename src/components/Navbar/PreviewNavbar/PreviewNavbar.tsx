@@ -6,7 +6,7 @@ type Props = {
 
 const PreviewNavbar = ({ setView }: Props) => {
   return (
-    <div className='pt-4 s:h-[379px] s:rounded-b-xl s:bg-main-purple'>
+    <div className='pt-4 s:h-[379px] s:rounded-b-xl s:bg-main-purple s:pt-0'>
       <div className='flex items-center gap-4 px-6 s:w-full s:justify-between'>
         <div className='flex w-full items-center gap-4 px-6 s:justify-between s:gap-0 s:rounded-md s:bg-slate-100 s:p-6'>
           <div className='flex-[1] s:flex-[0] '>
