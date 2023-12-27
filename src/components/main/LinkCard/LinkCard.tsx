@@ -19,7 +19,6 @@ interface Props {
 }
 
 const LinkCard = ({ data, removeLinkById, links, setLinks }: Props) => {
-  console.log(data, 'DATA');
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
     const { value } = e.target;
     const newLinks = links.map((link) => {
@@ -46,7 +45,7 @@ const LinkCard = ({ data, removeLinkById, links, setLinks }: Props) => {
         </div>
         <button
           onClick={() => removeLinkById(data.id as number)}
-          className='bg-none text-[14px] font-normal text-[#737373]'
+          className='cursor-pointer bg-none text-[14px] font-normal text-[#737373]'
         >
           Remove
         </button>

@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -17,17 +16,13 @@ const LogIn = () => {
     }
   };
 
-  const isCredentialsValid =
-    credentials?.email.length > 5 == true &&
-    credentials?.password.length > 5 == true;
+  const isCredentialsValid = credentials?.email.length > 5 == true && credentials?.password.length > 5 == true;
 
   return (
     <main className='flex flex-col gap-6'>
       <section className='flex flex-col gap-2'>
         <h1 className='heading_m'>Login</h1>
-        <span className='body_m'>
-          Add your details below to get back into the app
-        </span>
+        <span className='body_m'>Add your details below to get back into the app</span>
       </section>
       <form className='flex flex-col gap-6 pt-4'>
         <label className='relative flex flex-col gap-1'>
@@ -43,13 +38,6 @@ const LogIn = () => {
             type='text'
             placeholder='e.g alex@email.com'
           />
-          <Image
-            src={'/images/icon-envelope.svg'}
-            width={12}
-            height={12}
-            alt='Email input icon'
-            className='absolute bottom-0 left-[10px] top-[42px]'
-          />
         </label>
         <label className='relative flex flex-col gap-1'>
           <span className='body_s'>Password</span>
@@ -64,19 +52,12 @@ const LogIn = () => {
             type='password'
             placeholder='e.g Enter your password'
           />
-          <Image
-            src={'/images/icon-lock-key.svg'}
-            width={12}
-            height={12}
-            alt='Email input icon'
-            className='absolute bottom-0 left-[10px] top-[42px]'
-          />
         </label>
       </form>
       <div>
         <button
           onClick={() => handleSubmit()}
-          className={`heading_s w-full rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white duration-300 ${
+          className={`heading_s w-full cursor-pointer rounded-lg bg-main-purple px-[27px] py-[11px] font-bold text-white duration-300 ${
             isCredentialsValid == false && 'opacity-25 duration-300'
           }`}
         >

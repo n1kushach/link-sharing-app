@@ -15,6 +15,7 @@ const GenerateLink = ({ href, id }: Props) => {
         return (
           <Link
             href={href || ''}
+            target='_blank'
             className='flex h-[56px] w-[237px] items-center justify-between rounded-[8px] bg-[#1A1A1A] p-4'
           >
             <div className='flex items-center gap-2'>

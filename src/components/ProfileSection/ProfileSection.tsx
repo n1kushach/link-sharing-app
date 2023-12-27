@@ -7,7 +7,7 @@ import { profileSchema } from '@/schemas/profileSchema';
 import Image from 'next/image';
 
 const ProfileSection = () => {
-  const { profile, setProfile, setView } = useLinkShare();
+  const { profile, setProfile } = useLinkShare();
   const [errors, setErrors] = useState<any>({});
 
   const uploadImgRef = useRef<HTMLInputElement>(null);
@@ -37,7 +37,7 @@ const ProfileSection = () => {
           <div>
             <div
               onClick={() => uploadImgRef.current?.click()}
-              className='relative flex w-[70%] flex-col items-center justify-center gap-2 rounded-[12px] bg-[#EFEBFF] px-[39px] py-[60px]'
+              className='relative flex w-[70%] flex-col items-center justify-center gap-2 rounded-[12px] bg-[#EFEBFF] px-[39px] py-[60px] s:w-full'
             >
               <input
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
