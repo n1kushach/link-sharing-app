@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project: Link Share
+
+## Overview
+
+Link Share is a web application built with Next.js and Tailwind CSS that provides users with a platform to organize and share their favorite links. The app allows users to store links related to various platforms such as GitHub, Twitter, YouTube, and more. Users can associate these links with their profile information, creating a personalized and convenient way to manage and access important URLs.
+
+## Features
+
+1. **Profile Information:**
+   - Users can create profiles with personal information.
+   - Profile information is associated with stored links for a more personalized experience.
+
+2. **Link Management:**
+   - Easily add, edit, and remove links associated with different platforms.
+   - Categorize and organize links for efficient navigation.
+
+3. **Visually Pleasing UI:**
+   - The application features a visually pleasing user interface to enhance the user experience.
+   - Tailwind CSS is utilized for a modern and responsive design.
+
+4. **Drag and Drop Functionality:**
+   - The app incorporates drag and drop functionality, allowing users to intuitively arrange and organize their links.
+
+## Deployment
+
+The Link Share app is currently deployed and accessible at [Link Share Deployment](https://link-sharing-app-tawny.vercel.app/).
+
+## Technologies Used
+
+- **Next.js:** A React framework for building web applications with server-side rendering and routing.
+- **Tailwind CSS:** A utility-first CSS framework for building modern and responsive designs.
 
 ## Getting Started
 
-First, run the development server:
+To run the Link Share app locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository:
+   ```
+   https://github.com/n1kushach/link-sharing-app.git
