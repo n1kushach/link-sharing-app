@@ -23,7 +23,7 @@ const PreviewSection = () => {
             />
           )}
         </div>
-        <h1 className='heading_m text-[#333]'>
+        <h1 className='heading_m text-center text-[#333]'>
           {profile?.first_name} {profile?.last_name}
         </h1>
         <span className='body_m text-[#737373]'>{profile?.email}</span>
